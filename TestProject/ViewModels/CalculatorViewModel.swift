@@ -7,7 +7,7 @@
 
 import UIKit
 
-struct CalculatorViewModel {
+class CalculatorViewModel {
     var lhsValue: Double?
     var rhsValue: Double?
     var output = "0"
@@ -20,31 +20,34 @@ struct CalculatorViewModel {
         return numberFormatter
     }
 
-    mutating func insert(number: Int) {
+    func insert(number: Int) {
         if currentOperation == nil {
-            self.lhsValue = (lhsValue ?? 0) * 10 + Double(number)
-            self.output = lhsValue.flatMap({ numberFormatter.string(from: NSNumber(value: $0)) }) ?? String()
+            lhsValue = (lhsValue ?? 0) * 10 + Double(number)
+            output = lhsValue.flatMap({ numberFormatter.string(from: NSNumber(value: $0)) }) ?? String()
         } else {
-            self.rhsValue = (rhsValue ?? 0) * 10 + Double(number)
-            self.output = rhsValue.flatMap({ numberFormatter.string(from: NSNumber(value: $0)) }) ?? String()
+            rhsValue = (rhsValue ?? 0) * 10 + Double(number)
+            output = rhsValue.flatMap({ numberFormatter.string(from: NSNumber(value: $0)) }) ?? String()
         }
     }
 
-    mutating func insert(operation: Operation) {
+    func insert(operation: Operation) {
         if currentOperation == nil {
             if rhsValue == nil {
-                self.currentOperation = operation
+                currentOperation = operation
             } else {
                 equal()
             }
         } else {
             currentOperation = operation
         }
-        self.output = operation.rawValue
+        output = operation.rawValue
     }
 
-    mutating func equal() -> Double {
-        guard let currentOperation = currentOperation else { return Double(lhsValue ?? 0)}
+    @discardableResult
+    func equal() -> Double {
+        guard let currentOperation = currentOperation else {
+            return Double(lhsValue ?? 0)
+        }
 
         var result: Double
         switch currentOperation {
@@ -56,7 +59,7 @@ struct CalculatorViewModel {
             result = (lhsValue ?? 0) * (rhsValue ?? lhsValue ?? 0)
         case .divide:
             // TODO: divide zero error
-            result = (lhsValue ?? 0) / (rhsValue ?? lhsValue ?? 1)
+            result = (lhsValue ?? 0) / (rhsValue ?? lhsValue ?? 0)
         case .sin:
             result = sin(Double(lhsValue ?? 0))
         case .cos:
@@ -64,10 +67,10 @@ struct CalculatorViewModel {
         }
 
         self.currentOperation = nil
-        self.rhsValue = nil
-        self.lhsValue = result
+        rhsValue = nil
+        lhsValue = result
 
-        self.output = numberFormatter.string(from: NSNumber(value: result)) ?? String(result)
+        output = numberFormatter.string(from: NSNumber(value: result)) ?? String(result)
 
         return result
     }
