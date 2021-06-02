@@ -10,7 +10,7 @@ import UIKit
 protocol OperandsViewDelegate: AnyObject {
     func operandsView(_ view: OperandsView, didTap number: Int)
     func operandsViewDidTapDecimal(_ view: OperandsView)
-    func operandsViewDidTapDelete(_ view: OperandsView)
+    func operandsViewDidTapClear(_ view: OperandsView)
 }
 
 final class OperandsView: UIView {
@@ -125,6 +125,6 @@ final class OperandsView: UIView {
     }
 
     @objc private func deleteOperand(_ sender: Any) {
-        delegate?.operandsViewDidTapDelete(self)
+        delegate?.operandsViewDidTapClear(self)
     }
 }
