@@ -77,6 +77,31 @@ final class OperationsView: UIView {
         equalButton.addTarget(self, action: #selector(enterEqual(_:)), for: .touchUpInside)
         row4.addArrangedSubview(equalButton)
 
+        let rows = [row1, row2, row3, row4]
+        for row in rows {
+            row.axis = .horizontal
+            row.distribution = .fillEqually
+            row.spacing = 1
+            stackView.addArrangedSubview(row)
+        }
+
+        stackView.axis = .vertical
+        stackView.distribution = .fillEqually
+        stackView.spacing = 1
+        stackView.isLayoutMarginsRelativeArrangement = true
+        stackView.layoutMargins = .zero
+        stackView.layoutMargins.top = 1
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(stackView)
+
+        clipsToBounds = false
+
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: topAnchor),
+            stackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+        ])
     }
 
     @objc func enterOperation(_ sender: OperationInputButton) {
