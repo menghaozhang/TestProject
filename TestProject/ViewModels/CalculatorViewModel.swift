@@ -74,4 +74,17 @@ class CalculatorViewModel {
 
         return result
     }
+
+    func clear() {
+        if rhsValue != nil {
+            rhsValue = nil
+            output = "0"
+        } else if currentOperation != nil {
+            currentOperation = nil
+            output = lhsValue.flatMap({ numberFormatter.string(from: NSNumber(value: $0)) }) ?? String()
+        } else {
+            lhsValue = nil
+            output = "0"
+        }
+    }
 }
