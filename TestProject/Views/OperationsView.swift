@@ -38,38 +38,12 @@ final class OperationsView: UIView {
         layoutMargins = .zero
 
         for operation in operations {
-            switch operation {
-            case .plus:
-                let plusButton = OperationInputButton(operation: operation)
-                plusButton.title = operation.rawValue
-                plusButton.addTarget(self, action: #selector(enterOperation(_:)), for: .touchUpInside)
-                row1.addArrangedSubview(plusButton)
-            case .minus:
-                let minusButton = OperationInputButton(operation: operation)
-                minusButton.title = operation.rawValue
-                minusButton.addTarget(self, action: #selector(enterOperation(_:)), for: .touchUpInside)
-                row1.addArrangedSubview(minusButton)
-            case .times:
-                let timesButton = OperationInputButton(operation: operation)
-                timesButton.title = operation.rawValue
-                timesButton.addTarget(self, action: #selector(enterOperation(_:)), for: .touchUpInside)
-                row2.addArrangedSubview(timesButton)
-            case .divide:
-                let divideButton = OperationInputButton(operation: operation)
-                divideButton.title = operation.rawValue
-                divideButton.addTarget(self, action: #selector(enterOperation(_:)), for: .touchUpInside)
-                row2.addArrangedSubview(divideButton)
-            case .sin:
-                let sinButton = OperationInputButton(operation: operation)
-                sinButton.title = operation.rawValue
-                sinButton.addTarget(self, action: #selector(enterOperation(_:)), for: .touchUpInside)
-                row3.addArrangedSubview(sinButton)
-            case .cos:
-                let cosButton = OperationInputButton(operation: operation)
-                cosButton.title = operation.rawValue
-                cosButton.addTarget(self, action: #selector(enterOperation(_:)), for: .touchUpInside)
-                row3.addArrangedSubview(cosButton)
-            }
+            let operationInputButton = OperationInputButton(operation: operation)
+            operationInputButton.title = operation.rawValue
+            operationInputButton.addTarget(self, action: #selector(enterOperation(_:)), for: .touchUpInside)
+            [row1, row2, row3]
+                .first(where: { $0.arrangedSubviews.count < 2 })?
+                .addArrangedSubview(operationInputButton)
         }
 
         let equalButton = InputButton()
