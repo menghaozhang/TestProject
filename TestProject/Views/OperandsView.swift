@@ -7,7 +7,15 @@
 
 import UIKit
 
+protocol OperandsViewDelegate: AnyObject {
+    func operandsView(_ view: OperandsView, didTap number: Int)
+    func operandsViewDidTapDecimal(_ view: OperandsView)
+    func operandsViewDidTapDelete(_ view: OperandsView)
+}
+
 final class OperandsView: UIView {
+    weak var delegate: OperandsViewDelegate?
+
     private let stackView = UIStackView()
     private let row1 = UIStackView()
     private let row2 = UIStackView()
@@ -128,15 +136,17 @@ final class OperandsView: UIView {
         UIDevice.current.playInputClick()
     }
 
-    @objc private func enterOperand(_ sender: Any) {
-        // TODO
+    @objc private func enterOperand(_ sender: InputButton) {
+        if let text = sender.title, let inputNumber = Int(text) {
+            delegate?.operandsView(self, didTap: inputNumber)
+        }
     }
 
     @objc private func enterDecimal(_ sender: Any) {
-        // TODO
+        delegate?.operandsViewDidTapDecimal(self)
     }
 
     @objc private func deleteOperand(_ sender: Any) {
-        // TODO
+        delegate?.operandsViewDidTapDelete(self)
     }
 }
