@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     private let operandsView = OperandsView()
     private let operationsView = OperationsView()
     private let outputLabel = UILabel()
+    private let calculatorViewModel = CalculatorViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +27,12 @@ class ViewController: UIViewController {
         stackView.addArrangedSubview(operandsView)
         stackView.addArrangedSubview(operationsView)
 
-        outputLabel.text = "ads"
+        operandsView.delegate = self
+        operationsView.delegate = self
+
+        outputLabel.text = calculatorViewModel.output
+        outputLabel.adjustsFontSizeToFitWidth = true
+        outputLabel.minimumScaleFactor = 0.5
         outputLabel.font = UIFont.boldSystemFont(ofSize: 40)
         outputLabel.textAlignment = .right
 
@@ -47,3 +53,30 @@ class ViewController: UIViewController {
     }
 }
 
+extension ViewController: OperandsViewDelegate {
+    func operandsView(_ view: OperandsView, didTap number: Int) {
+        calculatorViewModel.insert(number: number)
+        outputLabel.text = calculatorViewModel.output
+    }
+
+    func operandsViewDidTapDecimal(_ view: OperandsView) {
+
+    }
+
+    func operandsViewDidTapClear(_ view: OperandsView) {
+        calculatorViewModel.clear()
+        outputLabel.text = calculatorViewModel.output
+    }
+}
+
+extension ViewController: OperationsViewDelegate {
+    func operationsView(_ view: OperationsView, didTap operation: Operation) {
+        calculatorViewModel.insert(operation: operation)
+        outputLabel.text = calculatorViewModel.output
+    }
+
+    func operationsViewDidTapEqual(_ view: OperationsView) {
+        calculatorViewModel.equal()
+        outputLabel.text = calculatorViewModel.output
+    }
+}
