@@ -10,12 +10,9 @@ import UIKit
 struct CalculatorViewModel {
     var lhsValue: Double?
     var rhsValue: Double?
-
-    var currentValue: Double?
-    var currentOperation: Operation?
-
     var output = "0"
 
+    private var currentOperation: Operation?
     mutating func insert(number: Int) {
         if currentOperation == nil {
             self.lhsValue = (lhsValue ?? 0) * 10 + Double(number)
