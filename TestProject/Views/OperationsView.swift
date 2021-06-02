@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol OperationsViewDelegate: AnyObject {
+    func operationsView(_ view: OperationsView, didTap operation: Operation)
+    func operationsViewDidTapEqual(_ view: OperationsView)
+}
+
 final class OperationsView: UIView {
+    weak var delegate: OperationsViewDelegate?
+
     private let stackView = UIStackView()
     private let row1 = UIStackView()
     private let row2 = UIStackView()
@@ -80,10 +87,10 @@ final class OperationsView: UIView {
     }
 
     @objc func enterOperation(_ sender: OperationInputButton) {
-        // TODO
+        delegate?.operationsView(self, didTap: sender.operation)
     }
 
     @objc func enterEqual(_ sender: Any) {
-        // TODO
+        delegate?.operationsViewDidTapEqual(self)
     }
 }
