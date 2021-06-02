@@ -13,15 +13,20 @@ struct CalculatorViewModel {
     var output = "0"
 
     private var currentOperation: Operation?
+    private var numberFormatter: NumberFormatter {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.minimumFractionDigits = 0
+        numberFormatter.maximumFractionDigits = 20
+        return numberFormatter
+    }
+
     mutating func insert(number: Int) {
         if currentOperation == nil {
             self.lhsValue = (lhsValue ?? 0) * 10 + Double(number)
-            self.currentValue = lhsValue
-            self.output = lhsValue.flatMap({ String($0) }) ?? String()
+            self.output = lhsValue.flatMap({ numberFormatter.string(from: NSNumber(value: $0)) }) ?? String()
         } else {
             self.rhsValue = (rhsValue ?? 0) * 10 + Double(number)
-            self.currentValue = rhsValue
-            self.output = rhsValue.flatMap({ String($0) }) ?? String()
+            self.output = rhsValue.flatMap({ numberFormatter.string(from: NSNumber(value: $0)) }) ?? String()
         }
     }
 
@@ -62,9 +67,8 @@ struct CalculatorViewModel {
         self.rhsValue = nil
         self.lhsValue = result
 
-        self.output = String(result)
+        self.output = numberFormatter.string(from: NSNumber(value: result)) ?? String(result)
 
         return result
-
     }
 }

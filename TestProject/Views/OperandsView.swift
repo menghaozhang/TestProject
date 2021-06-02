@@ -83,7 +83,7 @@ final class OperandsView: UIView {
         zeroButton.addTarget(self, action: #selector(enterOperand(_:)), for: .touchUpInside)
         row4.addArrangedSubview(zeroButton)
 
-        deleteButton.title = "c"
+        deleteButton.title = "clear"
         deleteButton.addTarget(self, action: #selector(deleteOperand(_:)), for: .touchUpInside)
         row4.addArrangedSubview(deleteButton)
 
