@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OperandsView: UIView {
+final class OperandsView: UIView {
     private let stackView = UIStackView()
     private let row1 = UIStackView()
     private let row2 = UIStackView()
