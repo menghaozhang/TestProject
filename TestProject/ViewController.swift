@@ -8,9 +8,9 @@
 import UIKit
 
 class ViewController: UIViewController {
-    private var stackView = UIStackView()
-    private var operandsView = OperandsView()
-    private var operationsView = OperationsView()
+    private let stackView = UIStackView()
+    private let operandsView = OperandsView()
+    private let operationsView = OperationsView()
     private let outputLabel = UILabel()
 
     override func viewDidLoad() {
