@@ -30,70 +30,60 @@ final class OperationsView: UIView {
         for operation in operations {
             switch operation {
             case .plus:
-                let plusButton = InputButton()
+                let plusButton = OperationInputButton(operation: operation)
                 plusButton.title = operation.rawValue
                 plusButton.addTarget(self, action: #selector(beginEnterNumber), for: .touchDown)
-                plusButton.addTarget(self, action: #selector(enterPlus(_:)), for: .touchUpInside)
+                plusButton.addTarget(self, action: #selector(enterOperation(_:)), for: .touchUpInside)
                 row1.addArrangedSubview(plusButton)
             case .minus:
-                let minusButton = InputButton()
+                let minusButton = OperationInputButton(operation: operation)
                 minusButton.title = operation.rawValue
                 minusButton.addTarget(self, action: #selector(beginEnterNumber), for: .touchDown)
-                minusButton.addTarget(self, action: #selector(enterMinus(_:)), for: .touchUpInside)
-                row2.addArrangedSubview(minusButton)
+                minusButton.addTarget(self, action: #selector(enterOperation(_:)), for: .touchUpInside)
+                row1.addArrangedSubview(minusButton)
             case .times:
-                let timesButton = InputButton()
+                let timesButton = OperationInputButton(operation: operation)
                 timesButton.title = operation.rawValue
                 timesButton.addTarget(self, action: #selector(beginEnterNumber), for: .touchDown)
-                timesButton.addTarget(self, action: #selector(enterTimes(_:)), for: .touchUpInside)
-                row3.addArrangedSubview(timesButton)
+                timesButton.addTarget(self, action: #selector(enterOperation(_:)), for: .touchUpInside)
+                row2.addArrangedSubview(timesButton)
             case .divide:
-                let divideButton = InputButton()
+                let divideButton = OperationInputButton(operation: operation)
                 divideButton.title = operation.rawValue
                 divideButton.addTarget(self, action: #selector(beginEnterNumber), for: .touchDown)
-                divideButton.addTarget(self, action: #selector(enterDivide(_:)), for: .touchUpInside)
-                row4.addArrangedSubview(divideButton)
+                divideButton.addTarget(self, action: #selector(enterOperation(_:)), for: .touchUpInside)
+                row2.addArrangedSubview(divideButton)
             case .sin:
-                let sinButton = InputButton()
+                let sinButton = OperationInputButton(operation: operation)
                 sinButton.title = operation.rawValue
                 sinButton.addTarget(self, action: #selector(beginEnterNumber), for: .touchDown)
-                sinButton.addTarget(self, action: #selector(enterSin(_:)), for: .touchUpInside)
+                sinButton.addTarget(self, action: #selector(enterOperation(_:)), for: .touchUpInside)
                 row3.addArrangedSubview(sinButton)
             case .cos:
-                let cosButton = InputButton()
+                let cosButton = OperationInputButton(operation: operation)
                 cosButton.title = operation.rawValue
                 cosButton.addTarget(self, action: #selector(beginEnterNumber), for: .touchDown)
-                cosButton.addTarget(self, action: #selector(enterCos(_:)), for: .touchUpInside)
-                row4.addArrangedSubview(cosButton)
+                cosButton.addTarget(self, action: #selector(enterOperation(_:)), for: .touchUpInside)
+                row3.addArrangedSubview(cosButton)
             }
         }
+
+        let equalButton = InputButton()
+        equalButton.title = "="
+        equalButton.addTarget(self, action: #selector(beginEnterNumber), for: .touchDown)
+        equalButton.addTarget(self, action: #selector(enterEqual(_:)), for: .touchUpInside)
+        row4.addArrangedSubview(equalButton)
     }
 
     @objc private func beginEnterNumber(_ sender: Any) {
         UIDevice.current.playInputClick()
     }
 
-    @objc func enterPlus(_ sender: Any) {
+    @objc func enterOperation(_ sender: OperationInputButton) {
         // TODO
     }
 
-    @objc func enterMinus(_ sender: Any) {
-        // TODO
-    }
-
-    @objc func enterTimes(_ sender: Any) {
-        // TODO
-    }
-
-    @objc func enterDivide(_ sender: Any) {
-        // TODO
-    }
-
-    @objc func enterSin(_ sender: Any) {
-        // TODO
-    }
-
-    @objc func enterCos(_ sender: Any) {
+    @objc func enterEqual(_ sender: Any) {
         // TODO
     }
 }
