@@ -13,6 +13,7 @@
 		8FC126A1266755850010F49E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC1269F266755850010F49E /* LaunchScreen.storyboard */; };
 		8FC126B326675B740010F49E /* InputButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC126B226675B740010F49E /* InputButton.swift */; };
 		8FC126BA26675EF60010F49E /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC126B926675EF60010F49E /* Operations.swift */; };
+		8FC126BF26677C430010F49E /* OperandsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC126BE26677C430010F49E /* OperandsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		8FC126A2266755850010F49E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FC126B226675B740010F49E /* InputButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputButton.swift; sourceTree = "<group>"; };
 		8FC126B926675EF60010F49E /* Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
+		8FC126BE26677C430010F49E /* OperandsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperandsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 			isa = PBXGroup;
 			children = (
 				8FC126B226675B740010F49E /* InputButton.swift */,
+				8FC126BE26677C430010F49E /* OperandsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -161,6 +164,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8FC12699266755840010F49E /* ViewController.swift in Sources */,
+				8FC126BF26677C430010F49E /* OperandsView.swift in Sources */,
 				8FC126B326675B740010F49E /* InputButton.swift in Sources */,
 				8FC12695266755840010F49E /* AppDelegate.swift in Sources */,
 				8FC126BA26675EF60010F49E /* Operations.swift in Sources */,
