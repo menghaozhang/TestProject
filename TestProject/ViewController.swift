@@ -17,6 +17,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
+        view.layoutMargins = .init(top: 4, left: 4, bottom: 4, right: 4)
 
         view.addSubview(outputLabel)
         view.addSubview(stackView)
@@ -25,6 +26,7 @@ class ViewController: UIViewController {
         stackView.addArrangedSubview(operandsView)
         stackView.addArrangedSubview(operationsView)
 
+        outputLabel.text = "ads"
         outputLabel.font = UIFont.boldSystemFont(ofSize: 40)
         outputLabel.textAlignment = .right
 
@@ -33,14 +35,14 @@ class ViewController: UIViewController {
 
         NSLayoutConstraint.activate([
             outputLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            outputLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            outputLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            outputLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            outputLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             outputLabel.heightAnchor.constraint(equalToConstant: 80),
 
             stackView.topAnchor.constraint(equalTo: outputLabel.bottomAnchor),
-            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            stackView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
+            stackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+            stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            stackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor)
         ])
     }
 }
