@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class InputButton: UIControl {
+class InputButton: UIControl {
     private let label = UILabel()
 
     var title: String? {

@@ -15,6 +15,7 @@
 		8FC126BA26675EF60010F49E /* Operations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC126B926675EF60010F49E /* Operations.swift */; };
 		8FC126BF26677C430010F49E /* OperandsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC126BE26677C430010F49E /* OperandsView.swift */; };
 		8FC126C2266785480010F49E /* OperationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC126C1266785480010F49E /* OperationsView.swift */; };
+		8FC126C526679DE20010F49E /* OperationInputButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC126C426679DE20010F49E /* OperationInputButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		8FC126B926675EF60010F49E /* Operations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Operations.swift; sourceTree = "<group>"; };
 		8FC126BE26677C430010F49E /* OperandsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperandsView.swift; sourceTree = "<group>"; };
 		8FC126C1266785480010F49E /* OperationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsView.swift; sourceTree = "<group>"; };
+		8FC126C426679DE20010F49E /* OperationInputButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationInputButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				8FC126B226675B740010F49E /* InputButton.swift */,
+				8FC126C426679DE20010F49E /* OperationInputButton.swift */,
 				8FC126BE26677C430010F49E /* OperandsView.swift */,
 				8FC126C1266785480010F49E /* OperationsView.swift */,
 			);
@@ -166,6 +169,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FC126C526679DE20010F49E /* OperationInputButton.swift in Sources */,
 				8FC126C2266785480010F49E /* OperationsView.swift in Sources */,
 				8FC12699266755840010F49E /* ViewController.swift in Sources */,
 				8FC126BF26677C430010F49E /* OperandsView.swift in Sources */,
