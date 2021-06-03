@@ -75,6 +75,7 @@
 				8FC12694266755840010F49E /* AppDelegate.swift */,
 				8FC12698266755840010F49E /* ViewController.swift */,
 				8F0E89D026692D780055C5AE /* ProcessInfo+extension.swift */,
+				8FF125982668FC75001C459D /* BitCoinStore.swift */,
 				8FF125902668F878001C459D /* Network */,
 				8FC126B826675E7A0010F49E /* Models */,
 				8FC126B726675E620010F49E /* ViewModels */,
@@ -118,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				8FF125912668F881001C459D /* BitCoinService.swift */,
-				8FF125982668FC75001C459D /* BitCoinStore.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
