@@ -92,10 +92,6 @@ extension ViewController: OperandsViewDelegate {
         calculatorViewModel.insert(number: number)
     }
 
-    func operandsViewDidTapDecimal(_ view: OperandsView) {
-        // TODO:
-    }
-
     func operandsViewDidTapClear(_ view: OperandsView) {
         calculatorViewModel.clear()
     }

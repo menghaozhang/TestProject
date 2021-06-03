@@ -9,7 +9,6 @@ import UIKit
 
 protocol OperandsViewDelegate: AnyObject {
     func operandsView(_ view: OperandsView, didTap number: Int)
-    func operandsViewDidTapDecimal(_ view: OperandsView)
     func operandsViewDidTapClear(_ view: OperandsView)
 }
 
@@ -23,7 +22,6 @@ final class OperandsView: UIView {
     private let row4 = UIStackView()
 
     private let deleteButton = InputButton()
-    private let decimalButton = InputButton()
 
     private var numberButtons: [InputButton] {
         return [row1, row2, row3, row4].flatMap({ $0.arrangedSubviews.compactMap({ $0 as? InputButton }) })
@@ -32,7 +30,6 @@ final class OperandsView: UIView {
     var numberColor: UIColor = .label {
         didSet {
             deleteButton.tintColor = numberColor
-            decimalButton.tintColor = numberColor
             for button in numberButtons {
                 button.tintColor = numberColor
             }
@@ -65,13 +62,6 @@ final class OperandsView: UIView {
                 .addArrangedSubview(button)
         }
 
-        decimalButton.title = Locale.current.decimalSeparator ?? "."
-        decimalButton.backgroundColor = .systemGroupedBackground
-        decimalButton.tintColor = .label
-        decimalButton.layer.borderWidth = 1
-        decimalButton.layer.borderColor = UIColor.separator.cgColor
-        decimalButton.addTarget(self, action: #selector(enterDecimal(_:)), for: .touchUpInside)
-        row4.addArrangedSubview(decimalButton)
 
         let zeroButton = InputButton()
         zeroButton.backgroundColor = .systemGroupedBackground
@@ -117,10 +107,6 @@ final class OperandsView: UIView {
         if let text = sender.title, let inputNumber = Int(text) {
             delegate?.operandsView(self, didTap: inputNumber)
         }
-    }
-
-    @objc private func enterDecimal(_ sender: Any) {
-        delegate?.operandsViewDidTapDecimal(self)
     }
 
     @objc private func deleteOperand(_ sender: Any) {
