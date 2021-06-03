@@ -35,7 +35,7 @@ class CalculatorViewModel {
     private var numberFormatter: NumberFormatter {
         let numberFormatter = NumberFormatter()
         numberFormatter.minimumFractionDigits = 0
-        numberFormatter.maximumFractionDigits = 20
+        numberFormatter.maximumFractionDigits = 10
         return numberFormatter
     }
 
@@ -85,9 +85,11 @@ class CalculatorViewModel {
             }
             result = (lhsValue ?? 0) / divisor
         case .sin:
-            result = sin(Double(rhsValue ?? lhsValue ?? 0))
+            let radius = radians(from: Double(rhsValue ?? lhsValue ?? 0))
+            result = sin(radius)
         case .cos:
-            result = cos(Double(rhsValue ?? lhsValue ?? 0))
+            let radius = radians(from: Double(rhsValue ?? lhsValue ?? 0))
+            result = cos(radius)
         case .bitcoin:
             bitCoinStore.fetchBitCoinPrice()
             return
@@ -135,5 +137,9 @@ class CalculatorViewModel {
                 output = .success(outputString)
             }
         }
+    }
+
+    func radians(from degree: Double) -> Double {
+        return degree * .pi / 180
     }
 }
