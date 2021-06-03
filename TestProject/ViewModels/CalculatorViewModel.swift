@@ -35,7 +35,7 @@ class CalculatorViewModel {
             if rhsValue == nil {
                 currentOperation = operation
             } else {
-                equal()
+                insertEqual()
             }
         } else {
             currentOperation = operation
@@ -44,7 +44,7 @@ class CalculatorViewModel {
     }
 
     @discardableResult
-    func equal() -> Double {
+    func insertEqual() -> Double {
         guard let currentOperation = currentOperation else {
             return Double(lhsValue ?? 0)
         }
@@ -61,9 +61,9 @@ class CalculatorViewModel {
             // TODO: divide zero error
             result = (lhsValue ?? 0) / (rhsValue ?? lhsValue ?? 0)
         case .sin:
-            result = sin(Double(lhsValue ?? 0))
+            result = sin(Double(rhsValue ?? lhsValue ?? 0))
         case .cos:
-            result = cos(Double(lhsValue ?? 0))
+            result = cos(Double(rhsValue ?? lhsValue ?? 0))
         }
 
         self.currentOperation = nil

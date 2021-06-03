@@ -42,11 +42,12 @@ class ViewController: UIViewController {
         stackView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            outputLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            outputLabel.topAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.topAnchor),
             outputLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             outputLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             outputLabel.heightAnchor.constraint(equalToConstant: 80),
 
+            stackView.widthAnchor.constraint(equalTo: stackView.heightAnchor),
             stackView.topAnchor.constraint(equalTo: outputLabel.bottomAnchor),
             stackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -78,7 +79,7 @@ extension ViewController: OperationsViewDelegate {
     }
 
     func operationsViewDidTapEqual(_ view: OperationsView) {
-        calculatorViewModel.equal()
+        calculatorViewModel.insertEqual()
         outputLabel.text = calculatorViewModel.output
     }
 }
