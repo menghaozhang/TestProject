@@ -48,10 +48,12 @@ class CalculatorViewModel {
     func insert(number: Int) {
         if currentOperation == nil {
             lhsValue = (lhsValue ?? 0) * 10 + Double(number)
-            output = lhsValue.flatMap({ numberFormatter.string(from: NSNumber(value: $0)) }) ?? String()
+            let result = lhsValue.flatMap({ numberFormatter.string(from: NSNumber(value: $0)) }) ?? String()
+            output = .success(result)
         } else {
             rhsValue = (rhsValue ?? 0) * 10 + Double(number)
-            output = rhsValue.flatMap({ numberFormatter.string(from: NSNumber(value: $0)) }) ?? String()
+            let result = rhsValue.flatMap({ numberFormatter.string(from: NSNumber(value: $0)) }) ?? String()
+            output = .success(result)
         }
     }
 
@@ -65,7 +67,7 @@ class CalculatorViewModel {
         } else {
             currentOperation = operation
         }
-        output = operation.rawValue
+        output = .success(operation.rawValue)
     }
 
     func insertEqual() {
@@ -82,8 +84,11 @@ class CalculatorViewModel {
         case .times:
             result = (lhsValue ?? 0) * (rhsValue ?? lhsValue ?? 0)
         case .divide:
-            // TODO: divide zero error
-            result = (lhsValue ?? 0) / (rhsValue ?? lhsValue ?? 0)
+            guard let divisor = rhsValue ?? lhsValue, divisor != 0 else {
+                output = .failure(.divideByZero)
+                return
+            }
+            result = (lhsValue ?? 0) / divisor
         case .sin:
             result = sin(Double(rhsValue ?? lhsValue ?? 0))
         case .cos:
@@ -97,19 +102,21 @@ class CalculatorViewModel {
         rhsValue = nil
         lhsValue = result
 
-        output = numberFormatter.string(from: NSNumber(value: result)) ?? String(result)
+        let outputString = numberFormatter.string(from: NSNumber(value: result)) ?? String(result)
+        output = .success(outputString)
     }
 
     func clear() {
         if rhsValue != nil {
             rhsValue = nil
-            output = "0"
+            output = .success("0")
         } else if currentOperation != nil {
             currentOperation = nil
-            output = lhsValue.flatMap({ numberFormatter.string(from: NSNumber(value: $0)) }) ?? String()
+            let outputString = lhsValue.flatMap({ numberFormatter.string(from: NSNumber(value: $0)) }) ?? String()
+            output = .success(outputString)
         } else {
             lhsValue = nil
-            output = "0"
+            output = .success("0")
         }
     }
 
@@ -118,9 +125,9 @@ class CalculatorViewModel {
         case .idle:
             break
         case .loading:
-            break
-        case .error(let error):
-            print(error)
+            output = .success("Loading...")
+        case .error:
+            self.output = .failure(.bitcoinPriceUnavailable)
         case .complete(let bitcoinValue):
             print(bitcoinValue)
             if currentOperation == .bitcoin {
@@ -129,7 +136,8 @@ class CalculatorViewModel {
                 rhsValue = nil
                 lhsValue = result
 
-                output = numberFormatter.string(from: NSNumber(value: result)) ?? String(result)
+                let outputString = numberFormatter.string(from: NSNumber(value: result)) ?? String(result)
+                output = .success(outputString)
             }
         }
     }
