@@ -17,6 +17,7 @@
 		8FC126C2266785480010F49E /* OperationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC126C1266785480010F49E /* OperationsView.swift */; };
 		8FC126C526679DE20010F49E /* OperationInputButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC126C426679DE20010F49E /* OperationInputButton.swift */; };
 		8FC126CF2667BB600010F49E /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC126CE2667BB600010F49E /* CalculatorViewModel.swift */; };
+		8FF125922668F881001C459D /* BitCoinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF125912668F881001C459D /* BitCoinService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		8FC126C1266785480010F49E /* OperationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationsView.swift; sourceTree = "<group>"; };
 		8FC126C426679DE20010F49E /* OperationInputButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationInputButton.swift; sourceTree = "<group>"; };
 		8FC126CE2667BB600010F49E /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
+		8FF125912668F881001C459D /* BitCoinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitCoinService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 			children = (
 				8FC12694266755840010F49E /* AppDelegate.swift */,
 				8FC12698266755840010F49E /* ViewController.swift */,
+				8FF125902668F878001C459D /* Network */,
 				8FC126B826675E7A0010F49E /* Models */,
 				8FC126B726675E620010F49E /* ViewModels */,
 				8FC126B526675DA10010F49E /* Views */,
@@ -101,6 +104,14 @@
 				8FC126B926675EF60010F49E /* Operations.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8FF125902668F878001C459D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				8FF125912668F881001C459D /* BitCoinService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +189,7 @@
 				8FC12699266755840010F49E /* ViewController.swift in Sources */,
 				8FC126BF26677C430010F49E /* OperandsView.swift in Sources */,
 				8FC126B326675B740010F49E /* InputButton.swift in Sources */,
+				8FF125922668F881001C459D /* BitCoinService.swift in Sources */,
 				8FC12695266755840010F49E /* AppDelegate.swift in Sources */,
 				8FC126BA26675EF60010F49E /* Operations.swift in Sources */,
 			);
