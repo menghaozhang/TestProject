@@ -50,7 +50,6 @@ final class OperandsView: UIView {
     }
 
     private func setup() {
-        backgroundColor = .white
         layoutMargins = .zero
 
         for number in 1...9 {
@@ -67,32 +66,40 @@ final class OperandsView: UIView {
         }
 
         decimalButton.title = Locale.current.decimalSeparator ?? "."
+        decimalButton.backgroundColor = .systemGroupedBackground
+        decimalButton.tintColor = .label
+        decimalButton.layer.borderWidth = 1
+        decimalButton.layer.borderColor = UIColor.separator.cgColor
         decimalButton.addTarget(self, action: #selector(enterDecimal(_:)), for: .touchUpInside)
         row4.addArrangedSubview(decimalButton)
 
         let zeroButton = InputButton()
+        zeroButton.backgroundColor = .systemGroupedBackground
+        zeroButton.tintColor = .label
+        zeroButton.layer.borderWidth = 1
+        zeroButton.layer.borderColor = UIColor.separator.cgColor
         zeroButton.title = "0"
         zeroButton.addTarget(self, action: #selector(enterOperand(_:)), for: .touchUpInside)
         row4.addArrangedSubview(zeroButton)
 
         deleteButton.title = "clear"
+        deleteButton.backgroundColor = .systemGroupedBackground
+        deleteButton.tintColor = .label
+        deleteButton.layer.borderWidth = 1
+        deleteButton.layer.borderColor = UIColor.separator.cgColor
         deleteButton.addTarget(self, action: #selector(deleteOperand(_:)), for: .touchUpInside)
         row4.addArrangedSubview(deleteButton)
 
-        let rows = [row1, row2, row3, row4]
-        for row in rows {
+        for row in [row1, row2, row3, row4] {
             row.axis = .horizontal
             row.distribution = .fillEqually
-            row.spacing = 1
             stackView.addArrangedSubview(row)
         }
 
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
-        stackView.spacing = 1
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = .zero
-        stackView.layoutMargins.top = 1
+        stackView.layoutMargins = .init(top: 1, left: 0, bottom: 0, right: 0)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(stackView)
 

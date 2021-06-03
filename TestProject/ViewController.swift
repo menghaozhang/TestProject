@@ -24,6 +24,8 @@ class ViewController: UIViewController {
         view.addSubview(stackView)
 
         stackView.distribution = .fillEqually
+        stackView.layer.borderWidth = 1
+        stackView.layer.borderColor = UIColor.separator.cgColor
         stackView.addArrangedSubview(operandsView)
         stackView.addArrangedSubview(operationsView)
 
