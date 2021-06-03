@@ -13,6 +13,11 @@ final class BitCoinService {
     private let decoder = JSONDecoder()
     private let baseUrl = URL(string: "https://api.coindesk.com/v1/bpi/currentprice.json")!
 
+    func fetchBitCoinPrice() -> AnyPublisher<BitCoinPriceIndex, Error> {
+        let urlRequest = URLRequest(url: baseUrl)
+        return performRequest(urlRequest: urlRequest)
+    }
+
     func performRequest<Object: Decodable>(urlRequest: URLRequest) -> AnyPublisher<Object, Error> {
         return urlSession
             .dataTaskPublisher(for: urlRequest)
