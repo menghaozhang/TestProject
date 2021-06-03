@@ -124,12 +124,13 @@ class CalculatorViewModel {
         case .loading:
             output = .success("Loading...")
         case .error:
-            self.output = .failure(.bitcoinPriceUnavailable)
+            output = .failure(.bitcoinPriceUnavailable)
+            currentOperation = nil
+            rhsValue = nil
         case .complete(let bitcoinValue):
-            print(bitcoinValue)
             if currentOperation == .bitcoin {
                 let result = bitcoinValue * (rhsValue ?? lhsValue ?? 0)
-                self.currentOperation = nil
+                currentOperation = nil
                 rhsValue = nil
                 lhsValue = result
 
