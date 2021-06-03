@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F0E89D126692D780055C5AE /* ProcessInfo+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0E89D026692D780055C5AE /* ProcessInfo+extension.swift */; };
 		8FC12695266755840010F49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC12694266755840010F49E /* AppDelegate.swift */; };
 		8FC12699266755840010F49E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC12698266755840010F49E /* ViewController.swift */; };
 		8FC1269E266755850010F49E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FC1269D266755850010F49E /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8F0E89D026692D780055C5AE /* ProcessInfo+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+extension.swift"; sourceTree = "<group>"; };
 		8FC12691266755840010F49E /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FC12694266755840010F49E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8FC12698266755840010F49E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			children = (
 				8FC12694266755840010F49E /* AppDelegate.swift */,
 				8FC12698266755840010F49E /* ViewController.swift */,
+				8F0E89D026692D780055C5AE /* ProcessInfo+extension.swift */,
 				8FF125902668F878001C459D /* Network */,
 				8FC126B826675E7A0010F49E /* Models */,
 				8FC126B726675E620010F49E /* ViewModels */,
@@ -198,6 +201,7 @@
 				8FF125922668F881001C459D /* BitCoinService.swift in Sources */,
 				8FC12695266755840010F49E /* AppDelegate.swift in Sources */,
 				8FF125992668FC75001C459D /* BitCoinStore.swift in Sources */,
+				8F0E89D126692D780055C5AE /* ProcessInfo+extension.swift in Sources */,
 				8FC126BA26675EF60010F49E /* Operations.swift in Sources */,
 				8FF125962668FA3F001C459D /* BitCoinPriceIndex.swift in Sources */,
 			);
