@@ -11,13 +11,15 @@ import Combine
 class ViewController: UIViewController {
     private let stackView = UIStackView()
     private let operandsView = OperandsView()
-    private let operationsView = OperationsView()
+    private let operationsView: OperationsView
     private let outputLabel = UILabel()
     private let calculatorViewModel = CalculatorViewModel()
 
     private var cancellable: Cancellable?
 
     init() {
+        operationsView = OperationsView(disabledOperations: ProcessInfo.processInfo.disabledOperations)
+
         super.init(nibName: nil, bundle: nil)
 
         cancellable = calculatorViewModel.$output.receive(on: DispatchQueue.main).sink { [weak self] output in
