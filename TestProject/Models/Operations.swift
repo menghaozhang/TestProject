@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum Operation: String {
+enum Operation: String, CaseIterable {
     case plus = "+"
     case minus = "-"
     case times = "*"
