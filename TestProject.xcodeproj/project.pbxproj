@@ -19,6 +19,7 @@
 		8FC126CF2667BB600010F49E /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC126CE2667BB600010F49E /* CalculatorViewModel.swift */; };
 		8FF125922668F881001C459D /* BitCoinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF125912668F881001C459D /* BitCoinService.swift */; };
 		8FF125962668FA3F001C459D /* BitCoinPriceIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF125952668FA3F001C459D /* BitCoinPriceIndex.swift */; };
+		8FF125992668FC75001C459D /* BitCoinStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF125982668FC75001C459D /* BitCoinStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		8FC126CE2667BB600010F49E /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
 		8FF125912668F881001C459D /* BitCoinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitCoinService.swift; sourceTree = "<group>"; };
 		8FF125952668FA3F001C459D /* BitCoinPriceIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitCoinPriceIndex.swift; sourceTree = "<group>"; };
+		8FF125982668FC75001C459D /* BitCoinStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitCoinStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			isa = PBXGroup;
 			children = (
 				8FF125912668F881001C459D /* BitCoinService.swift */,
+				8FF125982668FC75001C459D /* BitCoinStore.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -194,6 +197,7 @@
 				8FC126B326675B740010F49E /* InputButton.swift in Sources */,
 				8FF125922668F881001C459D /* BitCoinService.swift in Sources */,
 				8FC12695266755840010F49E /* AppDelegate.swift in Sources */,
+				8FF125992668FC75001C459D /* BitCoinStore.swift in Sources */,
 				8FC126BA26675EF60010F49E /* Operations.swift in Sources */,
 				8FF125962668FA3F001C459D /* BitCoinPriceIndex.swift in Sources */,
 			);
