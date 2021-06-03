@@ -41,13 +41,16 @@ class ViewController: UIViewController {
         outputLabel.translatesAutoresizingMaskIntoConstraints = false
         stackView.translatesAutoresizingMaskIntoConstraints = false
 
+        let stackViewRatioConstraint = stackView.widthAnchor.constraint(equalTo: stackView.heightAnchor)
+        stackViewRatioConstraint.priority = .defaultHigh
+
         NSLayoutConstraint.activate([
             outputLabel.topAnchor.constraint(greaterThanOrEqualTo: view.safeAreaLayoutGuide.topAnchor),
             outputLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             outputLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             outputLabel.heightAnchor.constraint(equalToConstant: 80),
 
-            stackView.widthAnchor.constraint(equalTo: stackView.heightAnchor),
+            stackViewRatioConstraint,
             stackView.topAnchor.constraint(equalTo: outputLabel.bottomAnchor),
             stackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             stackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
@@ -63,7 +66,7 @@ extension ViewController: OperandsViewDelegate {
     }
 
     func operandsViewDidTapDecimal(_ view: OperandsView) {
-
+        // TODO:
     }
 
     func operandsViewDidTapClear(_ view: OperandsView) {

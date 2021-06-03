@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct BitCoinPriceIndex {
+struct BitCoinPriceIndex: Decodable {
     var dpi: CurrencyValueIndex
 }
 
-struct CurrencyValueIndex {
+struct CurrencyValueIndex: Decodable {
     var USD: CurrencyValue
     var GBP: CurrencyValue
     var EUR: CurrencyValue
