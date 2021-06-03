@@ -9,9 +9,24 @@ import UIKit
 import Combine
 
 class CalculatorViewModel {
+    enum CalculatorError: CustomStringConvertible, Error {
+        case divideByZero
+        case bitcoinPriceUnavailable
+
+        var description: String {
+            switch self {
+            case .divideByZero:
+                return "Cannot have 0 as divisor."
+            case .bitcoinPriceUnavailable:
+                return "Cannot fetch bitcoin price from remote."
+            }
+        }
+    }
+
+    @Published private(set) var output: Result<String?, CalculatorError> = .success("0")
+
     var lhsValue: Double?
     var rhsValue: Double?
-    @Published private(set) var output: String? = "0"
 
     private var bitCoinStore = BitCoinStore()
 
