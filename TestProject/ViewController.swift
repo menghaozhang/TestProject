@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class ViewController: UIViewController {
     private let stackView = UIStackView()
@@ -14,6 +15,18 @@ class ViewController: UIViewController {
     private let outputLabel = UILabel()
     private let calculatorViewModel = CalculatorViewModel()
 
+    private var cancellable: Cancellable?
+
+    init() {
+        cancellable = calculatorViewModel.$output.receive(on: DispatchQueue.main).assign(to: \.text, on: outputLabel)
+
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -62,7 +75,6 @@ class ViewController: UIViewController {
 extension ViewController: OperandsViewDelegate {
     func operandsView(_ view: OperandsView, didTap number: Int) {
         calculatorViewModel.insert(number: number)
-        outputLabel.text = calculatorViewModel.output
     }
 
     func operandsViewDidTapDecimal(_ view: OperandsView) {
@@ -71,18 +83,15 @@ extension ViewController: OperandsViewDelegate {
 
     func operandsViewDidTapClear(_ view: OperandsView) {
         calculatorViewModel.clear()
-        outputLabel.text = calculatorViewModel.output
     }
 }
 
 extension ViewController: OperationsViewDelegate {
     func operationsView(_ view: OperationsView, didTap operation: Operation) {
         calculatorViewModel.insert(operation: operation)
-        outputLabel.text = calculatorViewModel.output
     }
 
     func operationsViewDidTapEqual(_ view: OperationsView) {
         calculatorViewModel.insertEqual()
-        outputLabel.text = calculatorViewModel.output
     }
 }
