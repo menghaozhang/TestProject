@@ -62,6 +62,11 @@ final class OperandsView: UIView {
                 .addArrangedSubview(button)
         }
 
+        let emptyView = UIView()
+        emptyView.backgroundColor = .systemGroupedBackground
+        emptyView.layer.borderWidth = 1
+        emptyView.layer.borderColor = UIColor.separator.cgColor
+        row4.addArrangedSubview(emptyView)
 
         let zeroButton = InputButton()
         zeroButton.backgroundColor = .systemGroupedBackground
