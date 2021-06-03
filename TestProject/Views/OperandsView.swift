@@ -29,7 +29,7 @@ final class OperandsView: UIView {
         return [row1, row2, row3, row4].flatMap({ $0.arrangedSubviews.compactMap({ $0 as? InputButton }) })
     }
 
-    var numberColor: UIColor = .white {
+    var numberColor: UIColor = .label {
         didSet {
             deleteButton.tintColor = numberColor
             decimalButton.tintColor = numberColor
@@ -53,25 +53,17 @@ final class OperandsView: UIView {
         backgroundColor = .white
         layoutMargins = .zero
 
-        for number in 1...3 {
+        for number in 1...9 {
             let button = InputButton()
+            button.backgroundColor = .systemGroupedBackground
+            button.tintColor = .label
+            button.layer.borderWidth = 1
+            button.layer.borderColor = UIColor.separator.cgColor
             button.title = String(number)
             button.addTarget(self, action: #selector(enterOperand(_:)), for: .touchUpInside)
-            row3.addArrangedSubview(button)
-        }
-
-        for number in 4...6 {
-            let button = InputButton()
-            button.title = String(number)
-            button.addTarget(self, action: #selector(enterOperand(_:)), for: .touchUpInside)
-            row2.addArrangedSubview(button)
-        }
-
-        for number in 7...9 {
-            let button = InputButton()
-            button.title = String(number)
-            button.addTarget(self, action: #selector(enterOperand(_:)), for: .touchUpInside)
-            row1.addArrangedSubview(button)
+            [row3, row2, row1]
+                .first { $0.arrangedSubviews.count < 3 }?
+                .addArrangedSubview(button)
         }
 
         decimalButton.title = Locale.current.decimalSeparator ?? "."
