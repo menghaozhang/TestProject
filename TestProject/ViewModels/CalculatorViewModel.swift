@@ -64,6 +64,9 @@ class CalculatorViewModel {
             result = sin(Double(rhsValue ?? lhsValue ?? 0))
         case .cos:
             result = cos(Double(rhsValue ?? lhsValue ?? 0))
+        case .bitcoin:
+            // TODO:
+            result = 1000.0 * Double(rhsValue ?? lhsValue ?? 0)
         }
 
         self.currentOperation = nil

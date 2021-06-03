@@ -14,4 +14,5 @@ enum Operation: String {
     case divide = "/"
     case sin
     case cos
+    case bitcoin = "₿"
 }

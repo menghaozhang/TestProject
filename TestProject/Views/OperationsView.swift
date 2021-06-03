@@ -21,7 +21,7 @@ final class OperationsView: UIView {
     private let row3 = UIStackView()
     private let row4 = UIStackView()
 
-    private var operations: [Operation] = [.plus, .minus, .times, .divide, .sin, .cos]
+    private var operations: [Operation] = [.plus, .minus, .times, .divide, .sin, .cos, .bitcoin]
 
     private var operationButtons: [InputButton] {
         return [row1, row2, row3, row4].flatMap({ $0.arrangedSubviews.compactMap({ $0 as? InputButton }) })
@@ -56,7 +56,7 @@ final class OperationsView: UIView {
             operationInputButton.layer.borderWidth = 1
             operationInputButton.layer.borderColor = UIColor.separator.cgColor
             operationInputButton.addTarget(self, action: #selector(enterOperation(_:)), for: .touchUpInside)
-            [row1, row2, row3]
+            [row1, row2, row3, row4]
                 .first(where: { $0.arrangedSubviews.count < 2 })?
                 .addArrangedSubview(operationInputButton)
         }
