@@ -6,18 +6,28 @@
 //
 
 import UIKit
+import Combine
 
 class CalculatorViewModel {
     var lhsValue: Double?
     var rhsValue: Double?
-    var output = "0"
+    @Published private(set) var output: String? = "0"
 
+    private var bitCoinStore = BitCoinStore()
+
+    private var cancellable: Cancellable?
     private var currentOperation: Operation?
     private var numberFormatter: NumberFormatter {
         let numberFormatter = NumberFormatter()
         numberFormatter.minimumFractionDigits = 0
         numberFormatter.maximumFractionDigits = 20
         return numberFormatter
+    }
+
+    init() {
+        cancellable = bitCoinStore.$state.sink { [weak self] state in
+            self?.update(state: state)
+        }
     }
 
     func insert(number: Int) {
@@ -43,10 +53,9 @@ class CalculatorViewModel {
         output = operation.rawValue
     }
 
-    @discardableResult
-    func insertEqual() -> Double {
+    func insertEqual() {
         guard let currentOperation = currentOperation else {
-            return Double(lhsValue ?? 0)
+            return
         }
 
         var result: Double
@@ -65,8 +74,8 @@ class CalculatorViewModel {
         case .cos:
             result = cos(Double(rhsValue ?? lhsValue ?? 0))
         case .bitcoin:
-            // TODO:
-            result = 1000.0 * Double(rhsValue ?? lhsValue ?? 0)
+            bitCoinStore.fetchBitCoinPrice()
+            return
         }
 
         self.currentOperation = nil
@@ -74,8 +83,6 @@ class CalculatorViewModel {
         lhsValue = result
 
         output = numberFormatter.string(from: NSNumber(value: result)) ?? String(result)
-
-        return result
     }
 
     func clear() {
@@ -88,6 +95,27 @@ class CalculatorViewModel {
         } else {
             lhsValue = nil
             output = "0"
+        }
+    }
+
+    private func update(state: BitCoinStore.State) {
+        switch state {
+        case .idle:
+            break
+        case .loading:
+            break
+        case .error(let error):
+            print(error)
+        case .complete(let bitcoinValue):
+            print(bitcoinValue)
+            if currentOperation == .bitcoin {
+                let result = bitcoinValue * (rhsValue ?? lhsValue ?? 0)
+                self.currentOperation = nil
+                rhsValue = nil
+                lhsValue = result
+
+                output = numberFormatter.string(from: NSNumber(value: result)) ?? String(result)
+            }
         }
     }
 }
