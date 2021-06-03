@@ -18,6 +18,7 @@
 		8FC126C526679DE20010F49E /* OperationInputButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC126C426679DE20010F49E /* OperationInputButton.swift */; };
 		8FC126CF2667BB600010F49E /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC126CE2667BB600010F49E /* CalculatorViewModel.swift */; };
 		8FF125922668F881001C459D /* BitCoinService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF125912668F881001C459D /* BitCoinService.swift */; };
+		8FF125962668FA3F001C459D /* BitCoinPriceIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF125952668FA3F001C459D /* BitCoinPriceIndex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		8FC126C426679DE20010F49E /* OperationInputButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationInputButton.swift; sourceTree = "<group>"; };
 		8FC126CE2667BB600010F49E /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
 		8FF125912668F881001C459D /* BitCoinService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitCoinService.swift; sourceTree = "<group>"; };
+		8FF125952668FA3F001C459D /* BitCoinPriceIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitCoinPriceIndex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				8FC126B926675EF60010F49E /* Operations.swift */,
+				8FF125952668FA3F001C459D /* BitCoinPriceIndex.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				8FF125922668F881001C459D /* BitCoinService.swift in Sources */,
 				8FC12695266755840010F49E /* AppDelegate.swift in Sources */,
 				8FC126BA26675EF60010F49E /* Operations.swift in Sources */,
+				8FF125962668FA3F001C459D /* BitCoinPriceIndex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
