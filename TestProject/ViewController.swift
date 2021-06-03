@@ -18,9 +18,23 @@ class ViewController: UIViewController {
     private var cancellable: Cancellable?
 
     init() {
-        cancellable = calculatorViewModel.$output.receive(on: DispatchQueue.main).assign(to: \.text, on: outputLabel)
-
         super.init(nibName: nil, bundle: nil)
+
+        cancellable = calculatorViewModel.$output.receive(on: DispatchQueue.main).sink { [weak self] output in
+            do {
+                let string = try output.get()
+                self?.outputLabel.text = string
+            } catch let error as CalculatorViewModel.CalculatorError {
+                let alertController = UIAlertController(title: "Error", message: error.description, preferredStyle: .alert)
+                alertController.addAction(.init(title: "OK", style: .default, handler: { _ in
+                    alertController.dismiss(animated: true)
+                }))
+                self?.present(alertController, animated: true)
+            }
+            catch {
+                fatalError()
+            }
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -45,7 +59,6 @@ class ViewController: UIViewController {
         operandsView.delegate = self
         operationsView.delegate = self
 
-        outputLabel.text = calculatorViewModel.output
         outputLabel.adjustsFontSizeToFitWidth = true
         outputLabel.minimumScaleFactor = 0.5
         outputLabel.font = UIFont.boldSystemFont(ofSize: 40)
