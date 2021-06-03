@@ -40,7 +40,7 @@ class BitCoinStore {
                 break
             }
         }, receiveValue: { bitCoinPriceIndex in
-            let currentBitCoinToUSDValue = bitCoinPriceIndex.dpi.USD.rateValue
+            let currentBitCoinToUSDValue = bitCoinPriceIndex.bpi.USD.rateValue
             self.state = .complete(currentBitCoinToUSDValue)
         })
     }

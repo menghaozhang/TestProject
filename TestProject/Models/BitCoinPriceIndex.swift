@@ -8,7 +8,7 @@
 import Foundation
 
 struct BitCoinPriceIndex: Decodable {
-    var dpi: CurrencyValueIndex
+    var bpi: CurrencyValueIndex
 }
 
 struct CurrencyValueIndex: Decodable {
