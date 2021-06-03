@@ -23,6 +23,18 @@ final class OperationsView: UIView {
 
     private var operations: [Operation] = [.plus, .minus, .times, .divide, .sin, .cos]
 
+    private var operationButtons: [InputButton] {
+        return [row1, row2, row3, row4].flatMap({ $0.arrangedSubviews.compactMap({ $0 as? InputButton }) })
+    }
+
+    var numberColor: UIColor = .label {
+        didSet {
+            for button in operationButtons {
+                button.tintColor = numberColor
+            }
+        }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -34,12 +46,15 @@ final class OperationsView: UIView {
     }
 
     private func setup() {
-        backgroundColor = .white
         layoutMargins = .zero
 
         for operation in operations {
             let operationInputButton = OperationInputButton(operation: operation)
+            operationInputButton.backgroundColor = .systemGroupedBackground
+            operationInputButton.tintColor = .label
             operationInputButton.title = operation.rawValue
+            operationInputButton.layer.borderWidth = 1
+            operationInputButton.layer.borderColor = UIColor.separator.cgColor
             operationInputButton.addTarget(self, action: #selector(enterOperation(_:)), for: .touchUpInside)
             [row1, row2, row3]
                 .first(where: { $0.arrangedSubviews.count < 2 })?
@@ -47,24 +62,24 @@ final class OperationsView: UIView {
         }
 
         let equalButton = InputButton()
+        equalButton.backgroundColor = .systemGroupedBackground
+        equalButton.tintColor = .label
+        equalButton.layer.borderWidth = 1
+        equalButton.layer.borderColor = UIColor.separator.cgColor
         equalButton.title = "="
         equalButton.addTarget(self, action: #selector(enterEqual(_:)), for: .touchUpInside)
         row4.addArrangedSubview(equalButton)
 
-        let rows = [row1, row2, row3, row4]
-        for row in rows {
+        for row in [row1, row2, row3, row4] {
             row.axis = .horizontal
             row.distribution = .fillEqually
-            row.spacing = 1
             stackView.addArrangedSubview(row)
         }
 
         stackView.axis = .vertical
         stackView.distribution = .fillEqually
-        stackView.spacing = 1
         stackView.isLayoutMarginsRelativeArrangement = true
-        stackView.layoutMargins = .zero
-        stackView.layoutMargins.top = 1
+        stackView.layoutMargins = .init(top: 1, left: 0, bottom: 0, right: 0)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         addSubview(stackView)
 
