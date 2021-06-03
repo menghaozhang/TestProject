@@ -58,15 +58,10 @@ class CalculatorViewModel {
     }
 
     func insert(operation: Operation) {
-        if currentOperation == nil {
-            if rhsValue == nil {
-                currentOperation = operation
-            } else {
-                insertEqual()
-            }
-        } else {
-            currentOperation = operation
+        if rhsValue != nil {
+            insertEqual()
         }
+        currentOperation = operation
         output = .success(operation.rawValue)
     }
 
