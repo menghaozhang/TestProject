@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  CalculatorViewController.swift
 //  TestProject
 //
 //  Created by Menghao Zhang on 2021-06-02.
@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class ViewController: UIViewController {
+class CalculatorViewController: UIViewController {
     private let stackView = UIStackView()
     private let operandsView = OperandsView()
     private let operationsView: OperationsView
@@ -87,7 +87,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: OperandsViewDelegate {
+extension CalculatorViewController: OperandsViewDelegate {
     func operandsView(_ view: OperandsView, didTap number: Int) {
         calculatorViewModel.insert(number: number)
     }
@@ -97,7 +97,7 @@ extension ViewController: OperandsViewDelegate {
     }
 }
 
-extension ViewController: OperationsViewDelegate {
+extension CalculatorViewController: OperationsViewDelegate {
     func operationsView(_ view: OperationsView, didTap operation: Operation) {
         calculatorViewModel.insert(operation: operation)
     }

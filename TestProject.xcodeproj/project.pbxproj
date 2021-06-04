@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		8F0E89D126692D780055C5AE /* ProcessInfo+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F0E89D026692D780055C5AE /* ProcessInfo+extension.swift */; };
 		8FC12695266755840010F49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC12694266755840010F49E /* AppDelegate.swift */; };
-		8FC12699266755840010F49E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC12698266755840010F49E /* ViewController.swift */; };
+		8FC12699266755840010F49E /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC12698266755840010F49E /* CalculatorViewController.swift */; };
 		8FC1269E266755850010F49E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FC1269D266755850010F49E /* Assets.xcassets */; };
 		8FC126A1266755850010F49E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC1269F266755850010F49E /* LaunchScreen.storyboard */; };
 		8FC126B326675B740010F49E /* InputButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC126B226675B740010F49E /* InputButton.swift */; };
@@ -27,7 +27,7 @@
 		8F0E89D026692D780055C5AE /* ProcessInfo+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProcessInfo+extension.swift"; sourceTree = "<group>"; };
 		8FC12691266755840010F49E /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FC12694266755840010F49E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8FC12698266755840010F49E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8FC12698266755840010F49E /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
 		8FC1269D266755850010F49E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FC126A0266755850010F49E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8FC126A2266755850010F49E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -73,7 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				8FC12694266755840010F49E /* AppDelegate.swift */,
-				8FC12698266755840010F49E /* ViewController.swift */,
+				8FC12698266755840010F49E /* CalculatorViewController.swift */,
 				8F0E89D026692D780055C5AE /* ProcessInfo+extension.swift */,
 				8FF125982668FC75001C459D /* BitCoinStore.swift */,
 				8FF125902668F878001C459D /* Network */,
@@ -195,7 +195,7 @@
 				8FC126C526679DE20010F49E /* OperationInputButton.swift in Sources */,
 				8FC126C2266785480010F49E /* OperationsView.swift in Sources */,
 				8FC126CF2667BB600010F49E /* CalculatorViewModel.swift in Sources */,
-				8FC12699266755840010F49E /* ViewController.swift in Sources */,
+				8FC12699266755840010F49E /* CalculatorViewController.swift in Sources */,
 				8FC126BF26677C430010F49E /* OperandsView.swift in Sources */,
 				8FC126B326675B740010F49E /* InputButton.swift in Sources */,
 				8FF125922668F881001C459D /* BitCoinService.swift in Sources */,
