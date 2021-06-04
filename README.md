@@ -1,4 +1,4 @@
-# TestProject
+# TestProject [![Build Status](https://travis-ci.com/menghaozhang/TestProject.svg?branch=main)](https://travis-ci.com/menghaozhang/TestProject)
 
 This is an iOS calculator app for showcase. Please use Environment variable `DISABLED_OPERATIONS` in Xcode Scheme Configurations to disable operations. Valid values are `+, -, *, /, sin, cos, ₿`. The operations are all available by default.
 
