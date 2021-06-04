@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		8FC12695266755840010F49E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FC12694266755840010F49E /* AppDelegate.swift */; };
 		8FC1269E266755850010F49E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FC1269D266755850010F49E /* Assets.xcassets */; };
 		8FC126A1266755850010F49E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8FC1269F266755850010F49E /* LaunchScreen.storyboard */; };
+		8FDB7CCA266A6E830077C3D8 /* CalculatorProject in Frameworks */ = {isa = PBXBuildFile; productRef = 8FDB7CC9266A6E830077C3D8 /* CalculatorProject */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,7 +19,7 @@
 		8FC1269D266755850010F49E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8FC126A0266755850010F49E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8FC126A2266755850010F49E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8FDB7CBF266A6C9D0077C3D8 /* TestProject */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TestProject; path = ..; sourceTree = "<group>"; };
+		8FDB7CCE266A6EDC0077C3D8 /* TestProject */ = {isa = PBXFileReference; lastKnownFileType = folder; name = TestProject; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,26 +27,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FDB7CCA266A6E830077C3D8 /* CalculatorProject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		8F3D6EA0266A6AB200D0E80B /* Package */ = {
-			isa = PBXGroup;
-			children = (
-				8FDB7CBF266A6C9D0077C3D8 /* TestProject */,
-			);
-			name = Package;
-			sourceTree = "<group>";
-		};
 		8FC12688266755840010F49E = {
 			isa = PBXGroup;
 			children = (
-				8F3D6EA0266A6AB200D0E80B /* Package */,
 				8FC12693266755840010F49E /* TestProject */,
 				8FC12692266755840010F49E /* Products */,
+				8FDB7CC8266A6E830077C3D8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +62,14 @@
 			path = TestProject;
 			sourceTree = "<group>";
 		};
+		8FDB7CC8266A6E830077C3D8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8FDB7CCE266A6EDC0077C3D8 /* TestProject */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -84,6 +86,9 @@
 			dependencies = (
 			);
 			name = TestProject;
+			packageProductDependencies = (
+				8FDB7CC9266A6E830077C3D8 /* CalculatorProject */,
+			);
 			productName = TestProject;
 			productReference = 8FC12691266755840010F49E /* TestProject.app */;
 			productType = "com.apple.product-type.application";
@@ -331,6 +336,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8FDB7CC9266A6E830077C3D8 /* CalculatorProject */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CalculatorProject;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8FC12689266755840010F49E /* Project object */;
 }
