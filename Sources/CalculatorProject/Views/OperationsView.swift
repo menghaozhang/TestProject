@@ -5,6 +5,7 @@
 //  Created by Menghao Zhang on 2021-06-02.
 //
 
+#if os(iOS)
 import UIKit
 
 protocol OperationsViewDelegate: AnyObject {
@@ -114,3 +115,4 @@ final class OperationsView: UIView {
         delegate?.operationsViewDidTapEqual(self)
     }
 }
+#endif

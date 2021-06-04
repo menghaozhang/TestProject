@@ -5,6 +5,7 @@
 //  Created by Menghao Zhang on 2021-06-02.
 //
 
+#if os(iOS)
 import UIKit
 import Combine
 
@@ -144,3 +145,4 @@ class CalculatorViewModel {
         return degree * .pi / 180
     }
 }
+#endif

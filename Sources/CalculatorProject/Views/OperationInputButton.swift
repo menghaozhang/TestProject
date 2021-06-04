@@ -5,6 +5,7 @@
 //  Created by Menghao Zhang on 2021-06-02.
 //
 
+#if os(iOS)
 import UIKit
 
 final class OperationInputButton: InputButton {
@@ -22,3 +23,4 @@ final class OperationInputButton: InputButton {
         fatalError("init(coder:) has not been implemented")
     }
 }
+#endif

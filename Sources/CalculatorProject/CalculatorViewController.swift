@@ -5,6 +5,7 @@
 //  Created by Menghao Zhang on 2021-06-02.
 //
 
+#if os(iOS)
 import UIKit
 import Combine
 
@@ -106,3 +107,4 @@ extension CalculatorViewController: OperationsViewDelegate {
         calculatorViewModel.insertEqual()
     }
 }
+#endif

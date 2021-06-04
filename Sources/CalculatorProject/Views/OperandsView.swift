@@ -5,6 +5,7 @@
 //  Created by Menghao Zhang on 2021-06-02.
 //
 
+#if os(iOS)
 import UIKit
 
 protocol OperandsViewDelegate: AnyObject {
@@ -118,3 +119,4 @@ final class OperandsView: UIView {
         delegate?.operandsViewDidTapClear(self)
     }
 }
+#endif
