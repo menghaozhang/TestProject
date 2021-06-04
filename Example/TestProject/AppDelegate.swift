@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CalculatorProject
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
