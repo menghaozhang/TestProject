@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class CalculatorViewController: UIViewController {
+public class CalculatorViewController: UIViewController {
     private let stackView = UIStackView()
     private let operandsView = OperandsView()
     private let operationsView: OperationsView
@@ -17,7 +17,7 @@ class CalculatorViewController: UIViewController {
 
     private var cancellable: Cancellable?
 
-    init() {
+    public init() {
         operationsView = OperationsView(disabledOperations: ProcessInfo.processInfo.disabledOperations)
 
         super.init(nibName: nil, bundle: nil)
@@ -39,11 +39,11 @@ class CalculatorViewController: UIViewController {
         }
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .systemBackground
