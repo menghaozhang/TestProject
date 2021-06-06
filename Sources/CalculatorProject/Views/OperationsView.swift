@@ -64,7 +64,7 @@ final class OperationsView: UIView {
                 continue
             }
             let operationInputButton = OperationInputButton(operation: operation)
-            operationInputButton.backgroundColor = .systemGroupedBackground
+            operationInputButton.backgroundColor = .accentBackgroundColor
             operationInputButton.tintColor = .label
             operationInputButton.title = operation.rawValue
             operationInputButton.layer.borderWidth = 1
@@ -76,7 +76,7 @@ final class OperationsView: UIView {
         }
 
         let equalButton = InputButton()
-        equalButton.backgroundColor = .systemGroupedBackground
+        equalButton.backgroundColor = .accentBackgroundColor
         equalButton.tintColor = .label
         equalButton.layer.borderWidth = 1
         equalButton.layer.borderColor = UIColor.separator.cgColor
