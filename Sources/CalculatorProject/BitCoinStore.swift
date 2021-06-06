@@ -19,15 +19,12 @@ class BitCoinStore {
 
     @Published private(set) var state: State
 
-    private let bitCoinService = BitCoinService()
+    private let bitCoinService: BitCoinService
     private var cancellable: Cancellable?
 
-    init() {
-        self.state = .idle
-    }
-
-    init(state: State) {
+    init(state: State = .idle) {
         self.state = state
+        bitCoinService = RESTBitCoinService()
     }
 
     func fetchBitCoinPrice() {

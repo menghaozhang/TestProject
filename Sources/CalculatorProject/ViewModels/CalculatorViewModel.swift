@@ -26,8 +26,8 @@ class CalculatorViewModel {
 
     @Published private(set) var output: Result<String?, CalculatorError> = .success("0")
 
-    var lhsValue: Double?
-    var rhsValue: Double?
+    private var lhsValue: Double?
+    private var rhsValue: Double?
 
     private let bitCoinStore: BitCoinStore
 
