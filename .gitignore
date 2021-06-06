@@ -3,3 +3,4 @@ xcuserdata/
 IDEWorkspaceChecks.plist
 *.xcworkspace
 .swiftpm/
+.build/
