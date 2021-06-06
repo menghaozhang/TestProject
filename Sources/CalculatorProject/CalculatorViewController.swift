@@ -14,11 +14,12 @@ public class CalculatorViewController: UIViewController {
     private let operandsView = OperandsView()
     private let operationsView: OperationsView
     private let outputLabel = UILabel()
-    private let calculatorViewModel = CalculatorViewModel()
+    private let calculatorViewModel: CalculatorViewModel
 
     private var cancellable: Cancellable?
 
     public init() {
+        calculatorViewModel = CalculatorViewModel(bitCoinStore: BitCoinStore())
         operationsView = OperationsView(disabledOperations: ProcessInfo.processInfo.disabledOperations)
 
         super.init(nibName: nil, bundle: nil)

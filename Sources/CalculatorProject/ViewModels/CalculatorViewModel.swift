@@ -29,7 +29,7 @@ class CalculatorViewModel {
     var lhsValue: Double?
     var rhsValue: Double?
 
-    private var bitCoinStore = BitCoinStore()
+    private let bitCoinStore: BitCoinStore
 
     private var cancellable: Cancellable?
     private var currentOperation: Operation?
@@ -40,7 +40,9 @@ class CalculatorViewModel {
         return numberFormatter
     }
 
-    init() {
+    init(bitCoinStore: BitCoinStore) {
+        self.bitCoinStore = bitCoinStore
+        
         cancellable = bitCoinStore.$state.sink { [weak self] state in
             self?.update(state: state)
         }
